@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../code_field/code_controller.dart';
 import '../line_numbers/gutter_style.dart';
+import 'dart:math';
 import 'error.dart';
 import 'fold_toggle.dart';
 
@@ -34,10 +35,14 @@ class GutterWidget extends StatelessWidget {
 
   Widget _buildOnChange(BuildContext context, Widget? child) {
     final code = codeController.code;
-
+    final defaultFontSize = 12;
+    final digitCount =
+        (log(code.hiddenLineRanges.visibleLineNumbers.length) / log(10))
+            .floor();
     final gutterWidth = style.width -
         (style.showErrors ? 0 : _issueColumnWidth) -
-        (style.showFoldingHandles ? 0 : _foldingColumnWidth);
+        (style.showFoldingHandles ? 0 : _foldingColumnWidth) +
+        digitCount * (defaultFontSize);
 
     final issueColumnWidth = style.showErrors ? _issueColumnWidth : 0.0;
     final foldingColumnWidth =
