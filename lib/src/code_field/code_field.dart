@@ -107,9 +107,9 @@ final _shortcuts = <ShortcutActivator, Intent>{
   ): const DismissIntent(),
 
   // EnterKey
-  LogicalKeySet(
-    LogicalKeyboardKey.enter,
-  ): const EnterKeyIntent(),
+  // LogicalKeySet(
+  //   LogicalKeyboardKey.enter,
+  // ): const EnterKeyIntent(),
 };
 
 class CodeField extends StatefulWidget {
