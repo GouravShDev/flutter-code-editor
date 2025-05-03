@@ -122,6 +122,9 @@ class CodeField extends StatefulWidget {
   /// {@macro flutter.widgets.textField.expands}
   final bool expands;
 
+  /// {@macro flutter.widgets.textField.keyboardType}
+  final TextInputType? keyboardType;
+
   /// Whether overflowing lines should wrap around
   /// or make the field scrollable horizontally.
   final bool wrap;
@@ -184,6 +187,7 @@ class CodeField extends StatefulWidget {
     this.lineNumberBuilder,
     this.focusNode,
     this.onChanged,
+    this.keyboardType,
     @Deprecated('Use gutterStyle instead') this.lineNumbers,
     @Deprecated('Use gutterStyle instead')
     this.lineNumberStyle = const GutterStyle(),
@@ -404,6 +408,7 @@ class _CodeFieldState extends State<CodeField> {
       minLines: widget.minLines,
       maxLines: widget.maxLines,
       expands: widget.expands,
+      keyboardType: widget.keyboardType,
       scrollController: _codeScroll,
       decoration: const InputDecoration(
         isCollapsed: true,
